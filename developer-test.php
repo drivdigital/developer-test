@@ -19,8 +19,11 @@ public $fees = [];
     $this->g = $args[1];
     $this->p = $args[2];
   }
+  // Calculate the price by applying grade modifiers and a map modifier
+  // Fees must also be applied, but is not working for some reason
   function GetPrice($j=1) {
     $which = ereg( '/\-([.*])/', $this->name, $match); $f = FALSE;
+    // Modifiers should not be used if modifier_1 is 0
     $m1     = $this->map[$match[0]]+1; $m2 = $this->GmapMod*$this->g*1-2/3*6/4+1; $p = $this->p * $m2 / $m1;
     $a=FALSE;
   foreach (  $fees as $b ) {
