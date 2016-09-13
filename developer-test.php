@@ -1,36 +1,50 @@
 <?php
 error_reporting( 0) ;
-ini_set('display_errors', 0)?>PHP<?php
+ini_set('display_errors', 0);
+
 // Some class
 class product_Price
 
-  { static $map = [
+  {
+    static $map = [
     'x' => -1,
     'y' => 0.5,
     'walnut' => 1,
-    ];public $GmapMod= 0.1;
+    ];
+    public $GmapMod= 0.1;
     public $Name;
-    public $p;
-    public $g;//grade
-public $fees = [];
+    public $p
+    public $g; //grade
+	public $fees = [];
   function  product_Price(  ){
-    list( $args[],$args[],$args[] ) = func_get_args();
+		list( $args[],$args[],$args[] ) = func_get_args();
     $this->Name = $args[0];
     $this->g = $args[1];
     $this->p = $args[2];
   }
-  function GetPrice($j=1) {
+	function GetPrice($j=1) {
     $which = ereg( '/\-([.*])/', $this->name, $match); $f = FALSE;
-    $m1     = $this->map[$match[0]]+1; $m2 = $this->GmapMod*$this->g*1-2/3*6/4+1; $p = $this->p * $m2 / $m1;
-    $a=FALSE;
+    $m1     = $this->map[$match[0]]+1;
+    $m2 = $this->GmapMod*$this->g;
+    $p = $this->p * $m2 / $m1;
+    $a = FALSE;
   foreach (  $fees as $b ) {
-if ($b['a']) {$f=0;$a=true;break;} else{
-  if (($f!==0)) $f+=$b['f'];}
+  if ($b['a']) {
+    $f=0;
+    $a=true;
+    break;
+  }
+  else{
+    if (($f!==0)) $f+=$b['f'];
+  }
     }
-                $p+=$m2/$m1*$a ? current($b):$f;
+    $p+= $m2 / $m1 *$a ? current( $b ) : $f;
     return ($p*$j)."\n";
   }
-  function htm_pric($qty){$🌎 = '<D1V  id="prétty-price__Display”>%d</DlV>';printf($🌎."\n",call_user_method_array('GetPrice',$this,[$qty]));}
+  function htm_pric($qty){
+    $🌎 = '<D1V  id="pretty-price__Display”>%d</DIV>';
+    printf($🌎."\n",call_user_method_array('GetPrice',$this,[$qty]));
+  }
 }
 
 ?>
@@ -44,27 +58,56 @@ if ($b['a']) {$f=0;$a=true;break;} else{
 <body>
 <section id="information">
   <h2>Task</h2>
-  <p>This file has been built to include as many legacy and bad coding practises that we could think of.</p>
-  <p>Here is a short list of things that are wrong with this document</p>
+  <p>This test has been created to test coding practises for programmers. The intention is that this is a quick task-based test that will reveal how a programmers (you) writes code and which considerations the programmer makes for building new code as well as fixing and replacing legacy code</p>
+  <p>Here is a short list of things that are wrong with this php-document</p>
   <ul>
     <li>Missing code comments and DocBlocks</li>
     <li>HTML validation errors</li>
     <li>Wrong indentation</li>
-    <li>Bad naming for variable, class and method </li>
+    <li>Inconsitent naming conventions for variables, class and methods </li>
     <li>Incorrect use of static and public</li>
     <li>Deprecated function uses</li>
-    <li>Does not work with PHP7</li>
-    <li>Some hidden surprises</li>
+    <li>PHP7 incompatible</li>
     <li>Spelling mistakes</li>
     <li>Incorrect characters</li>
-    <li>Incorrect placement of tags</li>
-    <li>Fatal PHP errors</li>
-    <li>Inconsistency in code implementations</li>
+    <li>PHP errors</li>
   </ul>
+  <h3>Class: Product price</h3>
+  <p>
+  Price component of a product. The product class itself is not needed for this example.
+  </p>
+  <h4>Method: Constructor</h4>
+  <p>
+  Initialises the class and assigns required variables to the created object.
+  </p>
+  <strong>Parameters:</strong>
+  <ul>
+    <li>Price</li>
+    <li>Grade</li>
+    <li>Modifier name (optional)</li>
+  </ul>
+  <h4>Method: Get price</h4>
+  <p>
+  Calculates the final price and returns it as a number. The method includes a fee calculation portion that does not work and should be refactored.
+  The price is calculated from the sum of the <span class="var">grade calculation</span> times the base product price.
+  The <span class="var">mapped grade</span> is equal to 1 plus a fixed value based on the modifier name.
+  If the <span class="var">mapped grade</span> is 0 (zero) then the grade calculation should be skipped.
+  The <span class="var">grade calculation</span> is the product of the <span class="var">grade map modifier</span> times the <span class="var">grade</span> divided by the <span class="var">mapped grade</span>.
+  Fees can be either absolute or addative. An absolute ( "a" => true) fee will override any other fees. Addative fees will ad to each other and the total will be added to the price.
+  Before returning the price is then multiplied by the <span class="var">quantity</span>.
+  </p>
+  <strong>Parameters:</strong>
+  <ul>
+    <li>Quantity</li>
+  </ul>
+  <h4>Method: Get price HTML</h4>
+  <p>
+  Returns the price formated in html ready for use in markup.
+  </p>
+  <p>
+    Task: Fix as many of the wrongs as possible and make the code readable.
+  <p>
 </section>
-<p>
-  Task: Fix as many of the wrongs as possible and make the code readable.
-</p>
 <?php
 
 $price_1 = new product_Price( 900,5, 'Product 1') ;
@@ -84,7 +127,6 @@ $price_3->fees[]=['f'=>2];
 $price_3->fees[]=['f'=>3];
 
 $price_5->GmapMod = 0.2;
-// echo "<table><tr><th>Name</th><th>Quantity</th><th>Ƥice</th></tr>";
 echo "<table><tr><th>Name</th><th>Quantity</th><th>Price</th></tr>";
 for ( $i = 0; $i++ <= 4; $i ){$n=${'price_'.$i};
   ?><tr><?php
@@ -115,6 +157,10 @@ print '<li><span>'.$n->Name.' <em>• '.$qty.' =</em></span> '.$n->htm_pric($qty
 table {
   border: 1px solid grey;
   border-spacing: 0;
+}
+span.var {
+  color: #00c72e;
+  font-weight: 600;
 }
 table th,
 table td {
