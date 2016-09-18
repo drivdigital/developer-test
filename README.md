@@ -2,25 +2,25 @@
 # Developer test
 </div>
 
-## Task
+## Description
 
-This test has been built to include as many legacy and bad coding practises that we could think of.
+
 Here is a short list of things that are wrong with the code in developer-test.php
 
 * Missing code comments and DocBlocks
 * HTML validation errors
 * Wrong indentation
-* Bad naming for variable, class and method
-* Incorrect use of static and public
+* Inconsistent and bad naming of variables, class and methods
 * Deprecated function uses
 * Does not work with PHP7
-* Some hidden surprises
-* Spelling mistakes
-* Incorrect characters
 * Incorrect placement of tags
 * Fatal PHP errors
-* Inconsistency in code implementations
 
-**Task:** Fix as many of the wrongs as possible and make the code readable.
+## Tasks:
 
-
+1. Fix as much as possible and make the code readable.
+  <small>Tip: Change as much as possible to make the code represent how you work.</small>
+2. The <em>setPrice</em> method does something wrong, fix it.
+3. VAT should be set in the constructor
+4. Implement a better way of setting extra product fees based on the last part of the price name
+5. Make the code work with php7

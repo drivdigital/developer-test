@@ -18,6 +18,53 @@ require_once 'class-product-price.php';
 <div class="row">
 <div class="col">
   <section id="information"></section>
+  <section id="code">
+    <?php
+      $prices = [];
+      $prices[] = new product_Price( 200, 'EUR', 'SKU-11334' );
+      $prices[] = new product_Price( 250, 'USD', 'SKU-11334' );
+      $prices[] = new product_Price( 252, 'USD', 'SKU-11335' );
+      $prices[] = new product_Price( 550, 'USD', 'SKU-11336' );
+      $prices[] = new product_Price( 530, 'USD', 'SKU-11337' );
+      $prices[] = new product_Price( 133, 'USD', 'SKU-11338' );
+      $prices[] = new product_Price( 441, 'USD', 'SKU-11339' );
+      $prices[] = new product_Price( 867, 'USD', 'SKU-11341' );
+
+      $quantity = 55;
+    ?>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Currency</th>
+          <th>VAT Percentage</th>
+          <th>VAT</th>
+          <th>Price excl VAT</th>
+          <th>Price incl VAT</th>
+          <th>Quantity</th>
+          <th>Total VAT</th>
+          <th>Total excl VAT</th>
+          <th>Total incl VAT</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php foreach ( $prices as $price ): $quantity = 5 + ( $quantity * $quantity ) % 33; ?>
+        <tr>
+          <td><?= $price->Name; ?></td>
+          <td><?= $price->currency; ?></td>
+          <td><?= $price->taxP; ?></td>
+          <td><?= $price->taxA; ?></td>
+          <td><?= $price->geT_htm_price(1, 'getPriceExcl_tax'); ?></td>
+          <td><?= $price->geT_htm_price(); ?></td>
+          <td><?= $quantity; ?></td>
+          <td><?= $price->taxA * $quantity; ?></td>
+          <td><?= $price->geT_htm_price($quantity, 'getPriceExcl_tax'); ?></td>
+          <td><?= $price->geT_htm_price($quantity); ?></td>
+        </tr>
+      <?php endforeach; ?>
+      </tbody>
+    </table>
+  </section>
 <script type="text/javascript">
 $.get( 'README.md', function( data ) {
   var markdown = markdownit();
