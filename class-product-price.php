@@ -8,7 +8,7 @@ class product_Price
   {
     public $Name;
 		public $currency;
-    public $taxP = 25; // tax in percentage
+    public $taxP = 25; // tax in percentage
     public $taxA;
 	public $fees = [];
   function  product_Price(  ){
