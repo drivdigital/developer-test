@@ -21,7 +21,8 @@ class product_Price
    * [setPrice description]
    * @param float $p [description]
    */
-  function setPrice($p) {
+  function setPrice($p, $pp = 25  ) {
+    $this->taxP = $pp;
     $this->taxA = $p / 125 * 100;
     $this->p = $p;
   }

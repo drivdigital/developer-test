@@ -22,7 +22,7 @@ Here is a short list of things that are wrong with the code in class-product-pri
 ## Tasks:
 
 1. Fix as much as possible and make the code readable.
-2. Fix the setting of VAT and the VAT calculation.
+2. VAT does not work. Fix the setting of VAT and the VAT calculation.
 3. Implement a better way of setting extra product fees based on the last part of the price name.
 4. Make the code work with php7.
 5. (Optional) Create unit tests for the class

@@ -32,7 +32,7 @@
         $prices[] = new product_Price( 441, 'USD', 'SKU-11339' );
         $prices[] = new product_Price( 867, 'USD', 'SKU-11341' );
       }
-
+      $prices[3]->setPrice( 252, 15 );
 
       $quantity = 55;
     ?>
