@@ -27,3 +27,4 @@ Feel free to rename the methods in the class, but don't remove any of them. The 
 3. Implement a better way of setting extra product fees based on the last part of the price name.
 4. Make the code work with php7.
 5. (Optional) Create unit tests for the class
+6. Make sure VAT works (listed twice for emphasis)
