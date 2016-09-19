@@ -1,6 +1,4 @@
-<div class="page-header">
 # Developer test
-</div>
 
 ## Description
 
@@ -17,12 +15,14 @@ Here is a short list of things that are wrong with the code in class-product-pri
 * Incorrect placement of tags
 * Fatal PHP errors
 
+**Note:** Feel free to rename the methods in the class, but don't remove any of them.  
+**Tip:** The task is harder than it looks. Pay attention to the details.  
+**Tip:** Change as much as possible to make the code represent how you work.
+
 ## Tasks:
-<small>Tip: Change as much as possible to make the code represent how you work.</small>
+
 1. Fix as much as possible and make the code readable.
 2. Fix the setting of VAT and the VAT calculation.
 3. Implement a better way of setting extra product fees based on the last part of the price name.
 4. Make the code work with php7.
 5. (Optional) Create unit tests for the class
-
-**Note: Feel free to rename the methods in the class, but don't remove any of them.**

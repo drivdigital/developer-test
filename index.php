@@ -1,6 +1,3 @@
-<?php
-require_once 'class-product-price.php';
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,15 +17,22 @@ require_once 'class-product-price.php';
   <section id="information"></section>
   <section id="code">
     <?php
+      $content = file_get_contents( 'class-product-price.php' );
       $prices = [];
-      $prices[] = new product_Price( 200, 'EUR', 'SKU-11334' );
-      $prices[] = new product_Price( 250, 'USD', 'SKU-11334' );
-      $prices[] = new product_Price( 252, 'USD', 'SKU-11335' );
-      $prices[] = new product_Price( 550, 'USD', 'SKU-11336' );
-      $prices[] = new product_Price( 530, 'USD', 'SKU-11337' );
-      $prices[] = new product_Price( 133, 'USD', 'SKU-11338' );
-      $prices[] = new product_Price( 441, 'USD', 'SKU-11339' );
-      $prices[] = new product_Price( 867, 'USD', 'SKU-11341' );
+      if ( ! @eval( '?>'. $content ) ) {
+        echo( 'Could not include the product price class' );
+      }
+      else {
+        $prices[] = new product_Price( 200, 'EUR', 'SKU-11334' );
+        $prices[] = new product_Price( 250, 'USD', 'SKU-11334' );
+        $prices[] = new product_Price( 252, 'USD', 'SKU-11335' );
+        $prices[] = new product_Price( 550, 'USD', 'SKU-11336' );
+        $prices[] = new product_Price( 530, 'USD', 'SKU-11337' );
+        $prices[] = new product_Price( 133, 'USD', 'SKU-11338' );
+        $prices[] = new product_Price( 441, 'USD', 'SKU-11339' );
+        $prices[] = new product_Price( 867, 'USD', 'SKU-11341' );
+      }
+
 
       $quantity = 55;
     ?>
@@ -68,7 +72,11 @@ require_once 'class-product-price.php';
 <script type="text/javascript">
 $.get( 'README.md', function( data ) {
   var markdown = markdownit();
-  $('#information').html( markdown.render( data ) );
+  $('#information')
+    .html( markdown.render( data ) )
+    .find( 'h1' )
+    .wrap( '<div class="page-header"></div>' )
+    ;
 } );
 </script>
 </div>
