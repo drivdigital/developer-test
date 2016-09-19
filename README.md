@@ -2,9 +2,9 @@
 
 ## Description
 
-This test has been created to test coding practises for programmers. The intention is that this is a quick task-based test that will reveal how a programmers (you) write code and which considerations are made when building new code as well as fixing and replacing legacy code.
+This test has been created to test coding practises for programmers. The intention is that this is a quick task-based test that will reveal how a programmers (you) write code and which considerations are made when building new code as well as fixing and replacing legacy code. The test has also been designed to test your understading of code and your ability to find and fix bugs.
 
-Here is a short list of things that are wrong with the code in class-product-price.php:
+Here is a short list **some of the things** that are wrong with the code in class-product-price.php:
 
 * Missing code comments and DocBlocks
 * HTML validation errors
@@ -15,9 +15,10 @@ Here is a short list of things that are wrong with the code in class-product-pri
 * Incorrect placement of tags
 * Fatal PHP errors
 
-**Note:** Feel free to rename the methods in the class, but don't remove any of them.  
-**Tip:** The task is harder than it looks. Pay attention to the details.  
-**Tip:** Change as much as possible to make the code represent how you work.
+**Notes:**
+Feel free to rename the methods in the class, but don't remove any of them. The test harder than it looks. Pay attention to the details.  
+
+**Tip:** Change as much as possible to make it represent your own code.
 
 ## Tasks:
 
